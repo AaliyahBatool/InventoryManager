@@ -1,0 +1,13 @@
+import express from "express";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export const getUsers = async (req, res) => {
+  try {
+    const users = await prisma.users.findMany();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving users" });
+  }
+};
