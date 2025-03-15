@@ -94,4 +94,8 @@ export default function StoreProvider({
       </PersistGate>
     </Provider>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
