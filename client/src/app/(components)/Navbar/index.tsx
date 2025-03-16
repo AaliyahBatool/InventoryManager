@@ -6,6 +6,7 @@ import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {useEffect} from "react"
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -19,8 +20,8 @@ const Navbar = () => {
   };
 
   const toggleDarkMode = () => {
-    dispatch(setIsDarkMode(!isDarkMode));
-  };
+    dispatch(setIsDarkMode(!isDarkMode));}
+    
 
   return (
     <div className="flex justify-between items-center w-full mb-7">
