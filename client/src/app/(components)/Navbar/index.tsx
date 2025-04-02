@@ -5,8 +5,7 @@ import { setIsDarkMode, setIsSidebarCollapsed } from "../../../state";
 import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import {useEffect} from "react"
+import React, { useEffect } from "react";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -15,13 +14,31 @@ const Navbar = () => {
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
+  useEffect(() => {
+    console.log("isDarkMode:", isDarkMode); // Check if state is updating
+    
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+  
+    console.log(document.documentElement.classList); // Check applied classes
+  }, [isDarkMode]);
+  
+
+  
+  
+
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
 
   const toggleDarkMode = () => {
-    dispatch(setIsDarkMode(!isDarkMode));}
-    
+    dispatch(setIsDarkMode(!isDarkMode));
+  };
 
   return (
     <div className="flex justify-between items-center w-full mb-7">
@@ -40,8 +57,7 @@ const Navbar = () => {
             placeholder="Start type to search groups & products"
             className="pl-10 pr-4 py-2 w-50 md:w-60 border-2 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500"
           />
-
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-non">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Bell className="text-gray-500" size={20} />
           </div>
         </div>

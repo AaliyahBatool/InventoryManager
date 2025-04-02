@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/state/api.ts", "src/app/dashboard/page.jsx"  ],
+, "src/state/api.ts", "src/app/dashboard/page.jsx", "tailwind.config.js"  ],
   "exclude": [
     "node_modules"
   ]
